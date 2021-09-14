@@ -9,22 +9,31 @@ const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image;
-    // console.log(product)
-    // console.log(product.rating)
     const rating = product.rating.rate;
     const ratingCount = parseInt(product.rating.count);
+
+    // product rating calculation
+    const starsTotal = 5;
+    const starPercentage = (rating / starsTotal) * 100;
+    // Round to nearest 10
+    const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
 
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
-      <div class="card h-100 pt-3 product-bg single-product">
+      <div class="card h-100 pt-3 single-product">
         <div class="text-center">
           <img src=${image} class="card-img-top product-image" alt="...">
         </div>
         <div class="card-body">
           <h5 class="card-title product-title">${product.title}</h5>
           <p class="card-text product-category">Category: ${product.category}</p>
-          <h5><span class="product-rating fst-italic">Rating: ${rating} </span> <span class="rating-count">(${ratingCount} Reviews)</span></h5>
+          <div class="rating-box d-flex">
+            <div class="stars-outer">
+              <div class="stars-inner"  style="width: ${starPercentageRounded};"></div>
+            </div>
+            <h5><span class="product-rating">(${rating}) </span> <span class="rating-count">(${ratingCount} Reviews)</span></h5>
+          </div>
           <h2 class="product-price">Price: $ ${product.price}</h2>
           <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-add-product">add to cart</button>
           <button id="details-btn" class="btn btn-product-details">Details</button>

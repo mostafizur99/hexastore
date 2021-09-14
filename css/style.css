@@ -77,6 +77,8 @@ body {
 }
 span.product-rating {
   font-size: 15px;
+  color: rgba(16,49,120,1);
+
 }
 span.rating-count {
   font-size: 13px;
@@ -106,11 +108,10 @@ span.rating-count {
   font-size: 15px;
 
 }
-.product-bg{
-  background: rgb(16 49 120 / 8%);
-}
 .single-product {
   transition: 0.3s;
+  border: 1px solid rgb(16 49 120 / 25%);
+  background: rgb(16 49 120 / 8%);
 }
 .single-product:hover {
   box-shadow: 4px 4px 7px gray;
@@ -119,6 +120,31 @@ span.rating-count {
 .product-image {
   width: 150px;
   height: 150px;
+}
+/* product-rating */
+.stars-outer {
+  position: relative;
+  display: inline-block;
+}
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+.stars-outer::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #ccc;
+}
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #f8ce0b;
 }
 
 /* cart area */
