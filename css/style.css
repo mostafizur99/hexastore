@@ -79,7 +79,8 @@ span.product-rating {
   font-size: 15px;
 }
 span.rating-count {
-  font-size: 12px;
+  font-size: 13px;
+  color: gray;
 }
 .product-price {
   font-size: 20px;
